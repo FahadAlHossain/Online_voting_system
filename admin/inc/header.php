@@ -25,7 +25,7 @@ if ($_SESSION['key'] != "AdminKey") {
     <div class="container-fluid">
         <div class="row bg-black text-white">
             <div class="col-1">
-                <img src="../assets/images/logo.gif" width="80px" />
+                <img src="../assets/images/logo1.gif" width="80px" />
             </div>
             <div class="col-11 my-auto">
                 <h3> ONLINE VOTING SYSTEM - <small> Welcome
