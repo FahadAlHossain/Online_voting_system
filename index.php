@@ -13,6 +13,8 @@
         // Active = Expire = Ending Date
         // InActive = Active = Starting Date
 
+        //  nothing ....
+
         if($status == "Active")
         {
             $date1=date_create($curr_date);
