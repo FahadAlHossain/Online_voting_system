@@ -29,8 +29,8 @@ if ($_SESSION['key'] != "AdminKey") {
             </div>
             <div class="col-11 my-auto">
                 <h3> ONLINE VOTING SYSTEM - <small> Welcome
-                        <?php echo $_SESSION['user_role']; ?> (
-                        <?php echo $_SESSION['user_name']; ?>)
+                        <?php echo $_SESSION['user_role']; ?>
+                        (<?php echo $_SESSION['user_name']; ?>)
                     </small> </h3>
             </div>
         </div>
