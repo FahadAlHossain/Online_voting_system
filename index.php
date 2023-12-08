@@ -79,7 +79,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <input type="text" name="su_contact_no" class="form-control input_pass" placeholder="Contact #" required />
+                                    <input type="text" name="su_studentID" class="form-control input_pass" placeholder="Student ID" required />
                                 </div>
                                 <div class="input-group mb-2">
                                     <div class="input-group-append">
@@ -114,7 +114,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="text" name="contact_no" class="form-control input_user" placeholder="Contact No" required />
+                                    <input type="text" name="student_ID" class="form-control input_user" placeholder="Student ID" required />
                                 </div>
                                 <div class="input-group mb-2">
                                     <div class="input-group-append">
@@ -178,7 +178,7 @@
     if(isset($_POST['sign_up_btn']))
     {
         $su_username = mysqli_real_escape_string($db, $_POST['su_username']);
-        $su_contact_no = mysqli_real_escape_string($db, $_POST['su_contact_no']);
+        $su_studentID = mysqli_real_escape_string($db, $_POST['su_studentID']);
         $su_password = mysqli_real_escape_string($db, sha1($_POST['su_password']));
         $su_retype_password = mysqli_real_escape_string($db, sha1($_POST['su_retype_password']));
         $user_role = "Voter"; 
@@ -187,7 +187,7 @@
         {
             // Insert Query 
 
-            mysqli_query($db, "INSERT INTO users(username, contact_no, password, user_role) VALUES('". $su_username ."', '". $su_contact_no ."', '". $su_password ."', '". $user_role ."')") or die(mysqli_error($db));
+            mysqli_query($db, "INSERT INTO users(username, student_ID, password, user_role) VALUES('". $su_username ."', '". $su_studentID ."', '". $su_password ."', '". $user_role ."')") or die(mysqli_error($db));
 
         ?>
             <script> location.assign("index.php?sign-up=1&registered=1"); </script>
@@ -201,19 +201,19 @@
              
     }else if(isset($_POST['loginBtn']))
     {
-        $contact_no = mysqli_real_escape_string($db, $_POST['contact_no']);
+        $student_ID = mysqli_real_escape_string($db, $_POST['student_ID']);
         $password = mysqli_real_escape_string($db, sha1($_POST['password']));
         
 
         // Query Fetch / SELECT
-        $fetchingData = mysqli_query($db, "SELECT * FROM users WHERE contact_no = '". $contact_no ."'") or die(mysqli_error($db));
+        $fetchingData = mysqli_query($db, "SELECT * FROM users WHERE student_ID = '". $student_ID ."'") or die(mysqli_error($db));
 
         
         if(mysqli_num_rows($fetchingData) > 0)
         {
             $data = mysqli_fetch_assoc($fetchingData);
 
-            if($contact_no == $data['contact_no'] AND $password == $data['password'])
+            if($student_ID == $data['student_ID'] AND $password == $data['password'])
             {
                 session_start();
                 $_SESSION['user_role'] = $data['user_role'];
