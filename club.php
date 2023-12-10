@@ -21,6 +21,7 @@
                 </div>
                 <div class="d-flex justify-content-center form_container">
                     <form method="POST">
+
                         <div class="input-group mb-2">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -73,3 +74,80 @@
 </body>
 
 </html>
+
+<?php
+require_once("admin/inc/config.php");
+
+if (isset($_POST['club_registration_btn'])) {  // Change 'sign_up_btn' to 'club_registration_btn'
+    // Form is submitted
+
+    $su_username = mysqli_real_escape_string($db, $_POST['su_username']);
+    $su_studentID = mysqli_real_escape_string($db, $_POST['su_studentID']);
+    $su_password = mysqli_real_escape_string($db, sha1($_POST['su_password']));
+    $su_retypepassword = mysqli_real_escape_string($db, sha1($_POST['su_retypepassword']));
+    $user_role = 'Voter';
+
+    // Check if the username or student ID already exists
+    $check_query = mysqli_query($db, "SELECT * FROM users WHERE username = '$su_username' OR student_ID = '$su_studentID'");
+    $check_result = mysqli_fetch_assoc($check_query);
+
+    if (!$check_result) {
+        // No duplicate data found, proceed with registration
+        if ($su_password == $su_retypepassword) {
+            // Insert query
+            mysqli_query($db, "INSERT INTO users(username, student_ID, password, user_role) 
+                VALUES('" . $su_username . "','" . $su_studentID . "','" . $su_password . "','" . $user_role . "')")
+                or die(mysqli_error($db));
+            ?>
+
+            <script> location.assign("index.php?sign-up=1&registered=1"); </script>
+
+            <?php
+        } else {
+            ?>
+            <script> location.assign("index.php?sign-up=1&invalid=1"); </script>
+            <?php
+        }
+    } else {
+        ?>
+        <script> location.assign("index.php?sign-up=1&duplicate=1"); </script>
+        <?php
+    }
+} else if (isset($_POST["loginBtn"])) {
+
+    $studentID = mysqli_real_escape_string($db, $_POST['student_ID']);
+    $password = mysqli_real_escape_string($db, sha1($_POST['password']));
+
+    //Query fetch/SELECT
+
+    $fetchingData = mysqli_query($db, "SELECT * FROM users WHERE student_ID = '" . $studentID . "'")
+        or die(mysqli_error($db));
+    if (mysqli_num_rows($fetchingData) > 0) {
+        $data = mysqli_fetch_assoc($fetchingData);
+        if ($studentID == $data['student_ID'] and $password == $data['password']) {
+            session_start();
+            $_SESSION['user_role'] = $data['user_role'];
+            $_SESSION['username'] = $data['username'];
+            if ($data['user_role'] == "Admin") {
+                $_SESSION["key"] = "AdminKey";
+                ?>
+                    <script>location.assign("admin/index.php")</script>
+                <?php
+            } else {
+                $_SESSION["key"] = "VotersKey";
+                ?>
+                    <script>location.assign("voters/index.php")</script>
+                <?php
+            }
+        } else {
+            ?>
+                <script> location.assign("index.php?invalid_access=1"); </script>
+            <?php
+        }
+    } else {
+        ?>
+            <script> location.assign("index.php?sign-up=1&not_registered=1"); </script>
+        <?php
+    }
+}
+?>
