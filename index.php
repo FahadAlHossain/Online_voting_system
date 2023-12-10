@@ -52,62 +52,54 @@ while ($data = mysqli_fetch_assoc($fetchingElections)) {
 
 <body>
     <div class="container h-100">
-        <div class="d-flex justify-content-center h-100">
-            <div class="user_card">
-                <div class="d-flex justify-content-center">
-                    <div class="brand_logo_container">
-                        <img src="assets/images/logo1.gif" class="brand_logo" alt="Logo">
-                    </div>
-                </div>
-
-                <?php
-                if (isset($_GET['sign-up'])) {
-                    ?>
-                    <div class="d-flex justify-content-center form_container">
-                        <form method="POST">
-                            <div class="input-group mb-3">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                </div>
-                                <input type="text" name="su_username" class="form-control input_user" placeholder="Username"
-                                    required />
-                            </div>
-                            <div class="input-group mb-2">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                </div>
-                                <input type="text" name="su_studentID" class="form-control input_pass"
-                                    placeholder="Student ID" required />
-                            </div>
-                            <div class="input-group mb-2">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                </div>
-                                <input type="password" name="su_password" class="form-control input_pass"
-                                    placeholder="Password" required />
-                            </div>
-                            <div class="input-group mb-2">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                </div>
-                                <input type="password" name="su_retype_password" class="form-control input_pass"
-                                    placeholder="Retype Password" required />
-                            </div>
-
-                            <div class="d-flex justify-content-center mt-3 login_container">
-                                <button type="submit" name="sign_up_btn" class="btn login_btn">Sign Up</button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="mt-4">
-                        <div class="d-flex justify-content-center links text-white">
-                            Already Created Account? <a href="index.php" class="ml-2 text-white">Sign In</a>
+        <?php
+        if (isset($_GET['club-registration'])) {
+            ?>
+            <div class="card-deck d-flex align-item-center">
+                <div class="d-flex align-item-center">
+                    <div class="card text-center" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Club-1</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="club.php" name="reg_btn" class="btn btn-primary">Register</a>
                         </div>
                     </div>
-                    <?php
-                } else {
-                    ?>
+                    <div class="card text-center" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Club-1</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="club.php" name="reg_btn" class="btn btn-primary">Register</a>
+                        </div>
+                    </div>
+                    <div class="card text-center" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Club-1</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="club.php" name="reg_btn" class="btn btn-primary">Register</a>
+                        </div>
+                    </div>
+                    <div class="card text-center" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Club-1</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="club.php" name="reg_btn" class="btn btn-primary">Register</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <?php
+
+        } else {
+            ?>
+            <div class="d-flex justify-content-center h-100">
+                <div class="user_card">
+                    <div class="d-flex justify-content-center">
+                        <div class="brand_logo_container">
+                            <img src="assets/images/logo1.gif" class="brand_logo" alt="Logo">
+                        </div>
+                    </div>
                     <div class="d-flex justify-content-center form_container">
                         <form method="POST">
                             <div class="input-group mb-3">
@@ -132,16 +124,17 @@ while ($data = mysqli_fetch_assoc($fetchingElections)) {
 
                     <div class="mt-4">
                         <div class="d-flex justify-content-center links text-white">
-                            Don't have an account? <a href="?sign-up=1" class="ml-2 text-white">Sign Up</a>
+                            Don't have an account? <a href="?club-registration=1" class="ml-2 text-white">Register
+                                Club</a>
                         </div>
                         <div class="d-flex justify-content-center links">
                             <a href="#" class="text-white">Forgot your password?</a>
                         </div>
                     </div>
                     <?php
-                }
+        }
 
-                ?>
+        ?>
 
                 <?php
                 if (isset($_GET['registered'])) {
