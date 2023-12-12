@@ -54,35 +54,42 @@ while ($data = mysqli_fetch_assoc($fetchingElections)) {
     <div class="container h-100">
         <?php
         if (isset($_GET['club-registration'])) {
+            
             ?>
-            <div class="card-deck d-flex align-item-center">
-                <div class="d-flex align-item-center">
-                    <div class="card text-center" style="width: 18rem;">
+            <br>
+            <br>
+            <h3 class="text-white text-center">Choose Clubs</h3>
+            <hr class="bg-white">
+            <br>
+            <br>
+            <div class="card-deck d-flex justify-content-center">
+                <div class="d-flex justify-content-center">
+                    <div class="card text-center border-primary bg-info" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title">Club-1</h5>
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="club.php" name="reg_btn" class="btn btn-primary">Register</a>
+                            <a href="club.php" name="reg_btn" class="btn login_btn">Register</a>
                         </div>
                     </div>
-                    <div class="card text-center" style="width: 18rem;">
+                    <div class="card text-center border-primary bg-info" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title">Club-1</h5>
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="club.php" name="reg_btn" class="btn btn-primary">Register</a>
+                            <a href="club.php" name="reg_btn" class="btn login_btn">Register</a>
                         </div>
                     </div>
-                    <div class="card text-center" style="width: 18rem;">
+                    <div class="card text-center border-primary bg-info" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title">Club-1</h5>
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="club.php" name="reg_btn" class="btn btn-primary">Register</a>
+                            <a href="club.php" name="reg_btn" class="btn login_btn">Register</a>
                         </div>
                     </div>
-                    <div class="card text-center" style="width: 18rem;">
+                    <div class="card text-center border-primary bg-info" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title">Club-1</h5>
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="club.php" name="reg_btn" class="btn btn-primary">Register</a>
+                            <a href="club.php" name="reg_btn" class="btn login_btn">Register</a>
                         </div>
                     </div>
                 </div>
@@ -221,10 +228,12 @@ if (isset($_POST['sign_up_btn'])) {
         or die(mysqli_error($db));
     if (mysqli_num_rows($fetchingData) > 0) {
         $data = mysqli_fetch_assoc($fetchingData);
-        if ($studentID == $data['student_ID'] and $password == $data['password']) {
+        if ($studentID == $data['student_ID'] AND $password == $data['password']) {
             session_start();
             $_SESSION['user_role'] = $data['user_role'];
             $_SESSION['username'] = $data['username'];
+            $_SESSION['user_id'] = $data['id'];
+
             if ($data['user_role'] == "Admin") {
                 $_SESSION["key"] = "AdminKey";
                 ?>

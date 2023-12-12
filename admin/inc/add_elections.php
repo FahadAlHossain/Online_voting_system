@@ -39,7 +39,7 @@
             <div class="form-group">
                 <input type="text" onfocus="this.type='Date'" name="ending_date" placeholder="Ending Date" class="form-control" required />
             </div>
-            <input type="submit" value="Add Elction" name="addElectionBtn" class="btn btn-success" />
+            <input type="submit" value="Add Election" name="addElectionBtn" class="btn btn-primary" />
         </form>
     </div>
 

@@ -1,3 +1,11 @@
+<?php
+// Disable warnings
+error_reporting(E_ERROR | E_PARSE);
+
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+?>
+
 <?php 
     $election_id = $_GET['viewResult'];
 
@@ -78,7 +86,7 @@
                         <tr>
                             <th>S.No</th>
                             <th>Voter Name</th>
-                            <th>Contact No</th>
+                            <th>Student ID</th>
                             <th>Voted To</th>
                             <th>Date </th>
                             <th>Time</th>
@@ -95,10 +103,10 @@
                             if($isDataAvailable > 0)
                             {
                                 $username = $userData['username'];
-                                $contact_no = $userData['contact_no'];
+                                $student_ID = $userData['student_ID'];
                             }else {
                                 $username = "No_Data";
-                                $contact_no = $userData['contact_no'];
+                                $student_ID = $userData['student_ID'];
                             }
 
 
@@ -115,7 +123,7 @@
                             <tr>
                                 <td><?php echo $sno++; ?></td>
                                 <td><?php echo $username; ?></td>
-                                <td><?php echo $contact_no; ?></td>
+                                <td><?php echo $student_ID; ?></td>
                                 <td><?php echo $candidate_name; ?></td>
                                 <td><?php echo $data['vote_date']; ?></td>
                                 <td><?php echo $data['vote_time']; ?></td>

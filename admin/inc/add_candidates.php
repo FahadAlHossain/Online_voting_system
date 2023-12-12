@@ -1,20 +1,29 @@
 <?php
+// Disable warnings
+error_reporting(E_ERROR | E_PARSE);
+
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+?>
+
+
+<?php
 if (isset($_GET['added'])) {
     ?>
     <div class="alert alert-success my-3" role="alert">
         Candidate has been added successfully.
     </div>
-<?php
+    <?php
 } else if (isset($_GET['largeFile'])) {
     ?>
         <div class="alert alert-danger my-3" role="alert">
-            Candidate image is too large, please upload small file (you can upload any image upto 2mbs.).
+            Candidate image is too large, please upload a smaller file (you can upload any image up to 2MB).
         </div>
     <?php
 } else if (isset($_GET['invalidFile'])) {
     ?>
             <div class="alert alert-danger my-3" role="alert">
-                Invalid image type (Only .jpg, .png files are allowed) .
+                Invalid image type (Only .jpg, .png files are allowed).
             </div>
     <?php
 } else if (isset($_GET['failed'])) {
@@ -24,8 +33,21 @@ if (isset($_GET['added'])) {
                 </div>
     <?php
 }
-
+else if(isset($_GET['delete_id']))
+{
+    $d_id = $_GET['delete_id'];
+    mysqli_query($db, "DELETE FROM elections WHERE id = '". $d_id ."'") OR die(mysqli_error($db));
 ?>
+   <div class="alert alert-danger my-3" role="alert">
+        Candidate has been deleted successfully!
+    </div>
+<?php
+
+}
+?>
+
+
+
 
 
 <div class="row my-3">
@@ -74,7 +96,7 @@ if (isset($_GET['added'])) {
                 <input type="text" name="candidate_details" placeholder="Candidate Details" class="form-control"
                     required />
             </div>
-            <input type="submit" value="Add Candidate" name="addCandidateBtn" class="btn btn-success" />
+            <input type="submit" value="Add Candidate" name="addCandidateBtn" class="btn btn-primary" />
         </form>
     </div>
 
@@ -127,11 +149,11 @@ if (isset($_GET['added'])) {
                                     class="btn btn-sm btn-warning"> Edit </a>
                             </td>
                             <td>
-                                <form method="POST" action="delete_candidate.php"
-                                    onsubmit="return confirm('Are you sure you want to delete this candidate?');">
-                                    <input type="hidden" name="candidate_id" value="<?php echo $row['id']; ?>">
-                                    <button type="submit" class="btn btn-sm btn-danger"> Delete </button>
-                                </form>
+                            <td>
+                                <button class="btn btn-sm btn-danger"
+                                    onclick="deleteCandidate(<?php echo $row['id']; ?>)">Delete</button>
+                            </td>
+
                             </td>
 
                         </tr>
@@ -149,6 +171,19 @@ if (isset($_GET['added'])) {
         </table>
     </div>
 </div>
+
+<script>
+    const DeleteData = (candidateId) => 
+    {
+        let c = confirm("Are you really want to delete it?");
+
+        if(c == true)
+        {
+            location.assign("index.php?addCandidatePage=1&delete_id=" + candidateId);
+        }
+    }
+</script>
+
 
 
 
