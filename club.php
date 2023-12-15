@@ -21,6 +21,19 @@
                 </div>
                 <div class="d-flex justify-content-center form_container">
                     <form method="POST">
+                    <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-club"></i></span>
+                            </div>
+                            <!-- Add a dropdown for selecting the club name -->
+                            <select name="club_name" class="form-control" required>
+                                <option value="" disabled selected>Select Club</option>
+                                <option value="English Club">English Club</option>
+                                <option value="Computer Club">Computer Club</option>
+                                <option value="Cultural Club">Cultural Club</option>
+                                <!-- Add more options as needed -->
+                            </select>
+                        </div>
                         <div class="input-group mb-2">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
