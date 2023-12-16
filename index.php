@@ -54,51 +54,7 @@ while ($data = mysqli_fetch_assoc($fetchingElections)) {
     <div class="container h-100">
         <?php
         if (isset($_GET['club-registration'])) {
-            
-            ?>
-            <br>
-            <br>
-            <h3 class="text-white text-center">Choose Clubs</h3>
-            <hr class="bg-white">
-            <br>
-            <br>
-            <div class="card-deck d-flex justify-content-center">
-                <div class="d-flex justify-content-center">
-                    <div class="card text-center border-primary bg-info" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Club-1</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="club.php" name="reg_btn" class="btn login_btn">Register</a>
-                        </div>
-                    </div>
-                    <div class="card text-center border-primary bg-info" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Club-1</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="club.php" name="reg_btn" class="btn login_btn">Register</a>
-                        </div>
-                    </div>
-                    <div class="card text-center border-primary bg-info" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Club-1</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="club.php" name="reg_btn" class="btn login_btn">Register</a>
-                        </div>
-                    </div>
-                    <div class="card text-center border-primary bg-info" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Club-1</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="club.php" name="reg_btn" class="btn login_btn">Register</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-
-            <?php
-
-        } else {
             ?>
             <div class="d-flex justify-content-center h-100">
                 <div class="user_card">
@@ -131,49 +87,162 @@ while ($data = mysqli_fetch_assoc($fetchingElections)) {
 
                     <div class="mt-4">
                         <div class="d-flex justify-content-center links text-white">
-                            Don't have an account? <a href="?club-registration=1" class="ml-2 text-white">Register
+                            Don't have an account? <a href="club.php" class="ml-2 text-white">Register
                                 Club</a>
                         </div>
                         <div class="d-flex justify-content-center links">
                             <a href="#" class="text-white">Forgot your password?</a>
                         </div>
                     </div>
+
+
                     <?php
+
+        } else {
+            ?>
+                    <nav class="navbar sticky-top navbar-light" style="background-color: #1f07b9;">
+                        <a class="navbar-brand text-white" href="#">
+                            <img src="assets/images/logo1.gif" width="30" height="30"
+                                class="d-inline-block align-top" alt="">
+                                Online Voting System
+                        </a>
+                        <button class="navbar-toggler bg-white" type="button" data-toggle="collapse"
+                            data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link font-weight-light text-white" href="club.php">Join</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link font-weight-light text-white" href="?club-registration=1">Login</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+
+                    <!-- Homepage Content -->
+                    <div class="container h-100">
+                        <!-- Display Club Information Cards -->
+                        <br>
+                        <br>
+                        <h3 id="club-info" class="text-white text-center">Welcome to UIU Clubs</h3>
+                        <hr class="bg-white">
+                        <br>
+                        <div class="card-deck">
+                            <div class="card">
+                                <img class="card-img-top" src="assets/images/club1.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">English Club</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This content is a little bit longer.</p>
+                                </div>
+
+                            </div>
+                            <div class="card">
+                                <img class="card-img-top" src="assets/images/club2.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Computer Club</h5>
+                                    <p class="card-text">This card has supporting text below as a natural lead-in to
+                                        additional content.</p>
+                                </div>
+
+                            </div>
+                            <div class="card">
+                                <img class="card-img-top" src="assets/images/club3.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cultural Club</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This card has even longer content than the first to
+                                        show that equal height action.</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img class="card-img-top" src="assets/images/club4.png" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Debate Club</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This card has even longer content than the first to
+                                        show that equal height action.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <br>
+    <br>
+    <h3 class="text-white text-center">Choose Clubs</h3>
+    <hr class="bg-white">
+    <br>
+    <br>
+    <div class="card-deck d-flex justify-content-center">
+        <div class="d-flex justify-content-center">
+            <div class="card text-center border-primary bg-info" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Club-1</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="club.php" name="reg_btn" class="btn login_btn">Register</a>
+                </div>
+            </div>
+            <div class="card text-center border-primary bg-info" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Club-1</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="club.php" name="reg_btn" class="btn login_btn">Register</a>
+                </div>
+            </div>
+            <div class="card text-center border-primary bg-info" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Club-1</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="club.php" name="reg_btn" class="btn login_btn">Register</a>
+                </div>
+            </div>
+            <div class="card text-center border-primary bg-info" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Club-1</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="club.php" name="reg_btn" class="btn login_btn">Register</a>
+                </div>
+            </div>
+        </div>
+    </div> -->
+                        <?php
         }
 
         ?>
 
-                <?php
-                if (isset($_GET['registered'])) {
-                    ?>
-                    <span class="bg-white text-success text-center my-3"> Your account has been created successfully!
-                    </span>
                     <?php
-                } else if (isset($_GET['invalid'])) {
+                    if (isset($_GET['registered'])) {
+                        ?>
+                        <span class="bg-white text-success text-center my-3"> Your account has been created successfully!
+                        </span>
+                        <?php
+                    } else if (isset($_GET['invalid'])) {
+                        ?>
+                            <span class="bg-white text-danger text-center my-3"> Passwords mismatched, please try again! </span>
+                        <?php
+                    } else if (isset($_GET['duplicate'])) {
+                        ?>
+                                <span class="bg-white text-danger text-center my-1">Already registered!</span>
+                        <?php
+                    } else if (isset($_GET['not_registered'])) {
+                        ?>
+                                    <span class="bg-white text-warning text-center my-3"> Sorry, you are not registered! </span>
+                        <?php
+                    } else if (isset($_GET['invalid_access'])) {
+                        ?>
+                                        <span class="bg-white text-danger text-center my-3"> Invalid username or password! </span>
+                        <?php
+                    }
                     ?>
-                        <span class="bg-white text-danger text-center my-3"> Passwords mismatched, please try again! </span>
-                    <?php
-                } else if (isset($_GET['duplicate'])) {
-                    ?>
-                            <span class="bg-white text-danger text-center my-1">Already registered!</span>
-                    <?php
-                } else if (isset($_GET['not_registered'])) {
-                    ?>
-                                <span class="bg-white text-warning text-center my-3"> Sorry, you are not registered! </span>
-                    <?php
-                } else if (isset($_GET['invalid_access'])) {
-                    ?>
-                                    <span class="bg-white text-danger text-center my-3"> Invalid username or password! </span>
-                    <?php
-                }
-                ?>
 
+                </div>
             </div>
         </div>
-    </div>
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
 
 </body>
 
@@ -228,7 +297,7 @@ if (isset($_POST['sign_up_btn'])) {
         or die(mysqli_error($db));
     if (mysqli_num_rows($fetchingData) > 0) {
         $data = mysqli_fetch_assoc($fetchingData);
-        if ($studentID == $data['student_ID'] AND $password == $data['password']) {
+        if ($studentID == $data['student_ID'] and $password == $data['password']) {
             session_start();
             $_SESSION['user_role'] = $data['user_role'];
             $_SESSION['username'] = $data['username'];

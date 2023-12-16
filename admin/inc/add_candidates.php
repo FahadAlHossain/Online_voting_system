@@ -145,8 +145,9 @@ else if(isset($_GET['delete_id']))
                                 <?php echo $election_name; ?>
                             </td>
                             <td>
-                                <a href="edit_candidates.php?candidate_id=<?php echo $row['id']; ?>"
-                                    class="btn btn-sm btn-warning"> Edit </a>
+                                <a href="edit_candidates.php?candidate_id=<?php echo $row['candidate_id']; ?>"
+                                  class="btn btn-sm btn-warning"> Edit </a>
+                    
                             </td>
                             <td>
                             <td>
