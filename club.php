@@ -16,7 +16,7 @@
             <div class="user_card">
                 <div class="d-flex justify-content-center">
                     <div class="brand_logo_container">
-                        <img src="assets/images/logo1.gif" class="brand_logo" alt="Logo">
+                        <a href="index.php"><img src="assets/images/logo1.gif" class="brand_logo" alt="Logo"></a>
                     </div>
                 </div>
                 <div class="d-flex justify-content-center form_container">
