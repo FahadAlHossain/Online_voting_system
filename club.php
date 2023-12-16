@@ -78,6 +78,22 @@
                         Already Registered? <a href="index.php?club-registration=1" class="ml-2 text-white">Sign In</a>
                     </div>
                 </div>
+                <?php
+                    if (isset($_GET['registered'])) {
+                        ?>
+                        <span class="bg-white text-success text-center my-3"> Your account has been created successfully!
+                        </span>
+                        <?php
+                    } else if (isset($_GET['invalid'])) {
+                        ?>
+                            <span class="bg-white text-danger text-center my-3"> Passwords mismatched, please try again! </span>
+                        <?php
+                    } else if (isset($_GET['duplicate'])) {
+                        ?>
+                                <span class="bg-white text-danger text-center my-1">Already registered!</span>
+                        <?php
+                    } 
+                    ?>
             </div>
         </div>
     </div>
@@ -117,17 +133,17 @@ if (isset($_POST['club_registration_btn'])) {  // Change 'sign_up_btn' to 'club_
                 or die(mysqli_error($db));
             ?>
 
-            <script> location.assign("index.php?sign-up=1&registered=1"); </script>
+            <script> location.assign("club.php?sign-up=1&registered=1"); </script>
 
             <?php
         } else {
             ?>
-            <script> location.assign("index.php?sign-up=1&invalid=1"); </script>
+            <script> location.assign("club.php?sign-up=1&invalid=1"); </script>
             <?php
         }
     } else {
         ?>
-        <script> location.assign("index.php?sign-up=1&duplicate=1"); </script>
+        <script> location.assign("club.php?sign-up=1&duplicate=1"); </script>
         <?php
     }
 } else if (isset($_POST["loginBtn"])) {

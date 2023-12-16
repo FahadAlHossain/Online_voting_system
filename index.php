@@ -102,9 +102,9 @@ while ($data = mysqli_fetch_assoc($fetchingElections)) {
             ?>
                     <nav class="navbar sticky-top navbar-light" style="background-color: #1f07b9;">
                         <a class="navbar-brand text-white" href="#">
-                            <img src="assets/images/logo1.gif" width="30" height="30"
-                                class="d-inline-block align-top" alt="">
-                                Online Voting System
+                            <img src="assets/images/logo1.gif" width="30" height="30" class="d-inline-block align-top"
+                                alt="">
+                            Online Voting System
                         </a>
                         <button class="navbar-toggler bg-white" type="button" data-toggle="collapse"
                             data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -175,26 +175,13 @@ while ($data = mysqli_fetch_assoc($fetchingElections)) {
         ?>
 
                     <?php
-                    if (isset($_GET['registered'])) {
+                    if (isset($_GET['not_registered'])) {
                         ?>
-                        <span class="bg-white text-success text-center my-3"> Your account has been created successfully!
-                        </span>
-                        <?php
-                    } else if (isset($_GET['invalid'])) {
-                        ?>
-                            <span class="bg-white text-danger text-center my-3"> Passwords mismatched, please try again! </span>
-                        <?php
-                    } else if (isset($_GET['duplicate'])) {
-                        ?>
-                                <span class="bg-white text-danger text-center my-1">Already registered!</span>
-                        <?php
-                    } else if (isset($_GET['not_registered'])) {
-                        ?>
-                                    <span class="bg-white text-warning text-center my-3"> Sorry, you are not registered! </span>
+                        <span class="bg-white text-warning text-center my-3"> Sorry, you are not registered! </span>
                         <?php
                     } else if (isset($_GET['invalid_access'])) {
                         ?>
-                                        <span class="bg-white text-danger text-center my-3"> Invalid username or password! </span>
+                            <span class="bg-white text-danger text-center my-3"> Invalid username or password! </span>
                         <?php
                     }
                     ?>
@@ -278,12 +265,12 @@ if (isset($_POST['sign_up_btn'])) {
             }
         } else {
             ?>
-                <script> location.assign("index.php?invalid_access=1"); </script>
+                <script> location.assign("index.php?club-registration=1&invalid_access=1"); </script>
             <?php
         }
     } else {
         ?>
-            <script> location.assign("index.php?sign-up=1&not_registered=1"); </script>
+            <script> location.assign("index.php?club-registration=1&not_registered=1"); </script>
         <?php
 
     }
