@@ -26,7 +26,15 @@
 <div class="row my-3">
     <div class="col-4">
         <h3>Add New Election</h3>
+       
         <form method="POST">
+            <select name="club_name" class="form-group" required>
+                <option value="" disabled selected>Select Club</option>
+                <option value="English Club">English Club</option>
+                <option value="Computer Club">Computer Club</option>
+                <option value="Cultural Club">Cultural Club</option>
+                <option value="Debate Club">Debate Club</option>
+            </select>
             <div class="form-group">
                 <input type="text" name="election_topic" placeholder="Elction Topic" class="form-control" required />
             </div>
@@ -72,6 +80,7 @@
                 ?>
                             <tr>
                                 <td><?php echo $sno++; ?></td>
+                                <td><?php echo $row['club_name']; ?></td>
                                 <td><?php echo $row['election_topic']; ?></td>
                                 <td><?php echo $row['no_of_candidates']; ?></td>
                                 <td><?php echo $row['starting_date']; ?></td>
@@ -114,6 +123,7 @@
 
     if(isset($_POST['addElectionBtn']))
     {
+        $club_name = mysqli_real_escape_string($db, $_POST['club_name']);
         $election_topic = mysqli_real_escape_string($db, $_POST['election_topic']);
         $number_of_candidates = mysqli_real_escape_string($db, $_POST['number_of_candidates']);
         $starting_date = mysqli_real_escape_string($db, $_POST['starting_date']);
@@ -135,7 +145,7 @@
         }
 
         // inserting into db
-        mysqli_query($db, "INSERT INTO elections(election_topic, no_of_candidates, starting_date, ending_date, status, inserted_by, inserted_on) VALUES('". $election_topic ."', '". $number_of_candidates ."', '". $starting_date ."', '". $ending_date ."', '". $status ."', '". $inserted_by ."', '". $inserted_on ."')") or die(mysqli_error($db));
+        mysqli_query($db, "INSERT INTO elections(club_name, election_topic, no_of_candidates, starting_date, ending_date, status, inserted_by, inserted_on) VALUES('". $club_name ."','". $election_topic ."', '". $number_of_candidates ."', '". $starting_date ."', '". $ending_date ."', '". $status ."', '". $inserted_by ."', '". $inserted_on ."')") or die(mysqli_error($db));
         
     ?>
             <script> location.assign("index.php?addElectionPage=1&added=1"); </script>

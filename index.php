@@ -169,44 +169,7 @@ while ($data = mysqli_fetch_assoc($fetchingElections)) {
                                 </div>
                             </div>
                         </div>
-                        <!-- <br>
-    <br>
-    <h3 class="text-white text-center">Choose Clubs</h3>
-    <hr class="bg-white">
-    <br>
-    <br>
-    <div class="card-deck d-flex justify-content-center">
-        <div class="d-flex justify-content-center">
-            <div class="card text-center border-primary bg-info" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Club-1</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="club.php" name="reg_btn" class="btn login_btn">Register</a>
-                </div>
-            </div>
-            <div class="card text-center border-primary bg-info" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Club-1</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="club.php" name="reg_btn" class="btn login_btn">Register</a>
-                </div>
-            </div>
-            <div class="card text-center border-primary bg-info" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Club-1</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="club.php" name="reg_btn" class="btn login_btn">Register</a>
-                </div>
-            </div>
-            <div class="card text-center border-primary bg-info" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Club-1</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="club.php" name="reg_btn" class="btn login_btn">Register</a>
-                </div>
-            </div>
-        </div>
-    </div> -->
+                    
                         <?php
         }
 

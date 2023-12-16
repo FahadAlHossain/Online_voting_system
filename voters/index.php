@@ -16,6 +16,7 @@ require_once("inc/navigation.php");
                 $election_id = $data['id'];
                 $election_topic = $data['election_topic'];
                 ?>
+
                 <table class="table">
                     <thead>
                         <tr>
