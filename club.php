@@ -26,11 +26,13 @@
                                 <span class="input-group-text"><i class="fas fa-club"></i></span>
                             </div>
                             <!-- Add a dropdown for selecting the club name -->
-                            <select name="club_name" class="form-control" required>
+                            <select name="su_club_name" class="form-control" required>
                                 <option value="" disabled selected>Select Club</option>
                                 <option value="English Club">English Club</option>
                                 <option value="Computer Club">Computer Club</option>
                                 <option value="Cultural Club">Cultural Club</option>
+                                <option value="Debate Club">Debate Club</option>
+
                                 <!-- Add more options as needed -->
                             </select>
                         </div>
@@ -41,6 +43,7 @@
                             <input type="text" name="su_username" class="form-control input_user" placeholder="Username"
                                 required />
                         </div>
+
                         <div class="input-group mb-2">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -94,6 +97,8 @@ if (isset($_POST['club_registration_btn'])) {  // Change 'sign_up_btn' to 'club_
     // Form is submitted
 
     $su_username = mysqli_real_escape_string($db, $_POST['su_username']);
+    $su_club_name = mysqli_real_escape_string($db, $_POST['su_club_name']);
+
     $su_studentID = mysqli_real_escape_string($db, $_POST['su_studentID']);
     $su_password = mysqli_real_escape_string($db, sha1($_POST['su_password']));
     $su_retypepassword = mysqli_real_escape_string($db, sha1($_POST['su_retypepassword']));
@@ -107,8 +112,8 @@ if (isset($_POST['club_registration_btn'])) {  // Change 'sign_up_btn' to 'club_
         // No duplicate data found, proceed with registration
         if ($su_password == $su_retypepassword) {
             // Insert query
-            mysqli_query($db, "INSERT INTO users(username, student_ID, password, user_role) 
-                VALUES('" . $su_username . "','" . $su_studentID . "','" . $su_password . "','" . $user_role . "')")
+            mysqli_query($db, "INSERT INTO users(username,club_name, student_ID, password, user_role) 
+                VALUES('" . $su_username . "','" . $su_club_name . "','" . $su_studentID . "','" . $su_password . "','" . $user_role . "')")
                 or die(mysqli_error($db));
             ?>
 
