@@ -33,10 +33,10 @@ if (isset($_GET['added'])) {
                 </div>
     <?php
 }
-else if(isset($_GET['delete_id']))
+else if(isset($_GET['delete-id']))
 {
-    $d_id = $_GET['delete_id'];
-    mysqli_query($db, "DELETE FROM elections WHERE id = '". $d_id ."'") OR die(mysqli_error($db));
+    $d_id = $_GET['delete-id'];
+    mysqli_query($db, "DELETE FROM candidate_details WHERE id = '". $d_id ."'") OR die(mysqli_error($db));
 ?>
    <div class="alert alert-danger my-3" role="alert">
         Candidate has been deleted successfully!
@@ -152,7 +152,7 @@ else if(isset($_GET['delete_id']))
                             <td>
                             <td>
                                 <button class="btn btn-sm btn-danger"
-                                    onclick="deleteCandidate(<?php echo $row['id']; ?>)">Delete</button>
+                                    onclick="deleteCandidate(<?php echo $election_id; ?>)">Delete</button>
                             </td>
 
                             </td>
@@ -174,13 +174,13 @@ else if(isset($_GET['delete_id']))
 </div>
 
 <script>
-    const DeleteData = (candidateId) => 
+    const deleteCandidate = (candidateId) => 
     {
         let c = confirm("Are you really want to delete it?");
 
         if(c == true)
         {
-            location.assign("index.php?addCandidatePage=1&delete_id=" + candidateId);
+            location.assign("index.php?addCandidatePage=1&delete-id=" + candidateId);
         }
     }
 </script>
