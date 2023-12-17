@@ -35,8 +35,8 @@ if (isset($_GET['added'])) {
 }
 else if(isset($_GET['delete-id']))
 {
-    $d_id = $_GET['delete-id'];
-    mysqli_query($db, "DELETE FROM candidate_details WHERE id = '". $d_id ."'") OR die(mysqli_error($db));
+    $candidate_id = $_GET['delete-id'];
+    mysqli_query($db, "DELETE FROM candidate_details WHERE id = '". $candidate_id ."'") OR die(mysqli_error($db));
 ?>
    <div class="alert alert-danger my-3" role="alert">
         Candidate has been deleted successfully!
@@ -150,11 +150,8 @@ else if(isset($_GET['delete-id']))
                     
                             </td>
                             <td>
-                            <td>
                                 <button class="btn btn-sm btn-danger"
                                     onclick="deleteCandidate(<?php echo $election_id; ?>)">Delete</button>
-                            </td>
-
                             </td>
 
                         </tr>
