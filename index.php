@@ -256,6 +256,7 @@ if (isset($_POST['sign_up_btn'])) {
             $_SESSION['user_role'] = $data['user_role'];
             $_SESSION['username'] = $data['username'];
             $_SESSION['user_id'] = $data['id'];
+            $_SESSION['club_name']=$data['club_name'];
 
             if ($data['user_role'] == "Admin") {
                 $_SESSION["key"] = "AdminKey";

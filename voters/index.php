@@ -8,10 +8,11 @@ require_once("inc/navigation.php");
         <h3> Voters Panel </h3>
 
         <?php
-        $fetchingActiveElections = mysqli_query($db, "SELECT * FROM elections WHERE status = 'Active'") or die(mysqli_error($db));
+        $fetchingActiveElections = mysqli_query($db, "SELECT * FROM elections WHERE status = 'Active' AND club_name = '" . $_SESSION['club_name'] . "'") or die(mysqli_error($db));
+
         $totalActiveElections = mysqli_num_rows($fetchingActiveElections);
 
-        if ($totalActiveElections > 0) {
+        if ($totalActiveElections > 0 ) {
             while ($data = mysqli_fetch_assoc($fetchingActiveElections)) {
                 $election_id = $data['id'];
                 $election_topic = $data['election_topic'];
@@ -22,7 +23,11 @@ require_once("inc/navigation.php");
                         <tr>
                             <th colspan="4" class="bg-green text-white">
                                 <h5> ELECTION TOPIC:
-                                    <?php echo strtoupper($election_topic); ?>
+                                    <?php echo strtoupper($election_topic); 
+                                    ?>
+                                    <?php echo '-' ?>
+                                    <?php
+                                     echo strtoupper($_SESSION['club_name']);?>
                                 </h5>
                             </th>
                         </tr>

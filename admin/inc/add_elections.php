@@ -57,6 +57,7 @@
             <thead>
                 <tr>
                     <th scope="col">S.No</th>
+                    <th scope="col">Club Name</th>
                     <th scope="col">Election Name</th>
                     <th scope="col"># Candidates</th>
                     <th scope="col">Starting Date</th>
